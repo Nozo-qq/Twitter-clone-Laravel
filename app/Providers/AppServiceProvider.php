@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Models\User;
 use App\Models\Idea;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Pluralizer;
 
@@ -44,12 +45,14 @@ class AppServiceProvider extends ServiceProvider
             return Gate::allows('admin') || Gate::allows('comment.owner', $comment);
         });
 
-       $topUsers = User::withCount('ideas')->orderBy('ideas_count', 'DESC')->limit(5)->get();
+        if (Schema::hasTable('ideas')) {
+            $topUsers = User::withCount('ideas')->orderBy('ideas_count', 'DESC')->limit(5)->get();
 
-        View::share(
-            'topUsers',
-            $topUsers
-        );
+            View::share(
+                'topUsers',
+                $topUsers
+            );
+        }
 
     }
 }
