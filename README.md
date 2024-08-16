@@ -1,13 +1,16 @@
 # Twitter-clone-laravel
 This is my first Laravel project , I tried to use the basics I know, I didn't really focused on the Logic so "I'll keep updating this repo and adding more features".
 
-How to run my project :
+## How to use
 
-First you must know that there is no option to create an admin user, so you should give this role in cmd .
-Follow this:
+- Copy __.env.example__ file to __.env__ and edit database credentials there
+- Run __composer install__
+- Run __php artisan key:generate__
+- Run __php artisan migrate --seed__ (it has some seeded data for your testing)
+- That's it: launch the main URL.
+- You can login as an admin using __admin@admin.com__ and __12345678__ as a password.
+- Register a new user if you want to try the normal user features also.
 
-type this command in cmd : php artisan make-admin user_id
+## License
 
-Where user_id is the id of the user which you want to promote to admin.
-
-Finally, you can promote a user to admin by promoting em from the admin dashboard which is only for the admin users.
+Basically, feel free to use and re-use any way you want.
