@@ -52,6 +52,8 @@ class AppServiceProvider extends ServiceProvider
                 'topUsers',
                 $topUsers
             );
+        } else {
+            abort(404);
         }
 
     }
