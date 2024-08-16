@@ -44,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
             return Gate::allows('admin') || Gate::allows('comment.owner', $comment);
         });
 
-        $topUsers = User::withCount('ideas')->orderBy('ideas_count', 'DESC')->limit(5)->get();
+       $topUsers = User::withCount('ideas')->orderBy('ideas_count', 'DESC')->limit(5)->get();
 
         View::share(
             'topUsers',
